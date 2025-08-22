@@ -1,0 +1,302 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 15 Pro",
+        "description": "Latest iPhone with A17 Pro chip and titanium design",
+        "price": 759,
+        "specifications": {
+            "display": "6.1-inch LTPO Super Retina XDR OLED (2556x1179)",
+            "chip": "Apple A17 Pro (3nm technology)",
+            "storage": "128GB, 256GB, 512GB, 1TB",
+            "camera": "48MP Main + 12MP Ultra Wide + 12MP Telephoto",
+            "battery": "3274 mAh (up to 23 hours video playback)",
+            "os": "iOS 17"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Samsung Galaxy S24 Ultra",
+        "description": "Flagship Android phone with Snapdragon 8 Gen 3 for Galaxy",
+        "price": 1199,
+        "specifications": {
+            "display": "6.8-inch Dynamic AMOLED 2X (3120x1440)",
+            "chip": "Snapdragon 8 Gen 3 for Galaxy",
+            "storage": "256GB, 512GB, 1TB",
+            "camera": "200MP Wide + 50MP Periscope Telephoto + 12MP Ultra Wide + 10MP Telephoto",
+            "battery": "5000 mAh (all-day battery)",
+            "os": "Android 14 with One UI 6.1"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-ultra-5g-sm-s928-0.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Google Pixel 9 Pro",
+        "description": "Google's flagship with Tensor G4 chip and advanced computational photography",
+        "price": 899,
+        "specifications": {
+            "display": "6.7-inch OLED (1344x2992)",
+            "chip": "Google Tensor G4",
+            "storage": "128GB, 256GB, 512GB",
+            "camera": "50MP Octa PD Wide + 48MP Quad PD Telephoto + 48MP Quad PD Ultra Wide",
+            "battery": "5050 mAh (up to 48 hours with Extreme Battery Saver)",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "OnePlus 12",
+        "description": "Flagship killer with Hasselblad camera and lightning-fast charging",
+        "price": 749,
+        "specifications": {
+            "display": "6.82-inch Fluid AMOLED (3168x1440)",
+            "chip": "Snapdragon 8 Gen 3",
+            "storage": "256GB, 512GB",
+            "camera": "50MP Main + 64MP Periscope Telephoto + 48MP Ultra Wide",
+            "battery": "5400 mAh (100W wired, 50W wireless charging)",
+            "os": "OxygenOS based on Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12-1.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Xiaomi 14 Pro",
+        "description": "Premium smartphone featuring Leica optics and HyperOS",
+        "price": 899,
+        "specifications": {
+            "display": "6.73-inch AMOLED (3200x1440)",
+            "chip": "Snapdragon 8 Gen 3",
+            "storage": "256GB, 512GB, 1TB",
+            "camera": "50MP Light Fusion 900 + 50MP Floating Telephoto + 50MP Ultra Wide",
+            "battery": "4880 mAh (120W wired, 50W wireless charging)",
+            "os": "HyperOS based on Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-pro-1.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Nothing Phone (3)",
+        "description": "Distinctive transparent design with Glyph Interface and top-tier Snapdragon 8 Gen 2",
+        "price": 599,
+        "specifications": {
+            "display": "6.7-inch LTPO OLED (2412x1084)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "256GB, 512GB",
+            "camera": "50MP Main + 50MP Ultra Wide",
+            "battery": "5000 mAh (45W wired, 15W wireless charging)",
+            "os": "Nothing OS based on Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/nothing/nothing-phone3-1.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Samsung Galaxy S25 Ultra",
+        "description": "Samsung's next flagship with Snapdragon 8 Elite chipset",
+        "price": 1299,
+        "specifications": {
+            "display": "6.9-inch Dynamic AMOLED 2X LTPO (3200x1440)",
+            "chip": "Snapdragon 8 Gen 3 Elite for Galaxy",
+            "storage": "12/16GB RAM; 256GB, 512GB, 1TB",
+            "camera": "200MP Wide + 50MP Ultra Wide + 10MP Telephoto + 50MP Telephoto",
+            "battery": "5000 mAh",
+            "os": "Android 15 with One UI 8"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s25-ultra-1.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Apple iPhone 16 Pro Max",
+        "description": "Apple's flagship with A18 chip and enhanced camera system",
+        "price": 1399,
+        "specifications": {
+            "display": "6.7-inch LTPO OLED (2796x1290)",
+            "chip": "Apple A18 Bionic",
+            "storage": "128GB - 1TB",
+            "camera": "54MP Main + 12MP Ultra Wide + 12MP Telephoto",
+            "battery": "3500 mAh",
+            "os": "iOS 18"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Google Pixel 9 Pro XL",
+        "description": "Google's larger flagship with Tensor G4 chip and top-tier cameras",
+        "price": 1099,
+        "specifications": {
+            "display": "6.8-inch LTPO OLED (3200x1440)",
+            "chip": "Google Tensor G4",
+            "storage": "128GB, 256GB, 512GB",
+            "camera": "50MP Wide + 48MP Telephoto + 48MP Ultra Wide",
+            "battery": "5220 mAh",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-xl-1.jpg"
+    },
+    {
+        "id": 10,
+        "name": "OnePlus 13",
+        "description": "OnePlus flagship with Snapdragon 8 Gen 3 and Hasselblad cameras",
+        "price": 699,
+        "specifications": {
+            "display": "6.7-inch AMOLED 120Hz (3216x1440)",
+            "chip": "Snapdragon 8 Gen 3",
+            "storage": "128GB, 256GB, 512GB",
+            "camera": "50MP Main + 64MP Periscope Telephoto + 48MP Ultra Wide",
+            "battery": "5000 mAh (100W charging)",
+            "os": "OxygenOS based on Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-13-1.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Xiaomi 15 Ultra",
+        "description": "Leica cameras with Dolby Vision display and HyperOS",
+        "price": 1099,
+        "specifications": {
+            "display": "6.73-inch AMOLED 1440p 120Hz",
+            "chip": "Snapdragon 8 Gen 3 Elite",
+            "storage": "256GB, 512GB, 1TB",
+            "camera": "50MP Light Fusion 900 + 50MP Floating Telephoto + 50MP Ultra Wide",
+            "battery": "5000 mAh (120W wired charging)",
+            "os": "HyperOS"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-15-ultra-1.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Sony Xperia 1 V",
+        "description": "Cinema-grade display and advanced camera system",
+        "price": 1299,
+        "specifications": {
+            "display": "6.5-inch 4K OLED (3840x1644)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "256GB, 512GB",
+            "camera": "12MP Triple Lens with ZEISS optics",
+            "battery": "5000 mAh",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-1-v-1.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Motorola Edge 40 Pro",
+        "description": "Motorola flagship with stock Android and Snapdragon 8 Gen 2",
+        "price": 799,
+        "specifications": {
+            "display": "6.67-inch AMOLED (2400x1080)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "128GB, 256GB",
+            "camera": "50MP OIS Main + 50MP Ultra Wide",
+            "battery": "4700 mAh",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/motorola/motorola-edge-40-pro-1.jpg"
+    },
+    {
+        "id": 14,
+        "name": "ASUS ROG Phone 7",
+        "description": "Gaming powerhouse with Snapdragon 8 Gen 2 and 165Hz display",
+        "price": 999,
+        "specifications": {
+            "display": "6.78-inch AMOLED 165Hz (2448x1080)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "256GB, 512GB",
+            "camera": "50MP Main + 13MP Ultra Wide",
+            "battery": "6000 mAh (60W charging)",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/asus/asus-rog-phone-7-1.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Samsung Galaxy Z Fold 5",
+        "description": "Foldable flagship with improved hinge and foldable display",
+        "price": 1799,
+        "specifications": {
+            "display": "7.6-inch foldable Dynamic AMOLED 2X (2176x1812)",
+            "chip": "Snapdragon 8 Gen 2 for Galaxy",
+            "storage": "256GB, 512GB, 1TB",
+            "camera": "50MP Wide + 12MP Ultra Wide + 10MP Telephoto",
+            "battery": "4400 mAh",
+            "os": "Android 14 with One UI 6.1"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-fold5-1.jpg"
+    },
+    {
+        "id": 16,
+        "name": "Oppo Find N5",
+        "description": "Compact foldable with Snapdragon 8 Gen 3 and 120Hz display",
+        "price": 1499,
+        "specifications": {
+            "display": "7.1-inch foldable AMOLED (1920x2160)",
+            "chip": "Snapdragon 8 Gen 3",
+            "storage": "256GB, 512GB",
+            "camera": "50MP Main + 8MP Ultra Wide",
+            "battery": "4500 mAh",
+            "os": "Android 15 with ColorOS 15"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-n5-1.jpg"
+    },
+    {
+        "id": 17,
+        "name": "Realme GT 6 Pro",
+        "description": "Affordably priced flagship with Snapdragon 8 Gen 2",
+        "price": 599,
+        "specifications": {
+            "display": "6.7-inch AMOLED 120Hz (3216x1440)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "128GB, 256GB",
+            "camera": "50MP Main + 50MP Ultra Wide",
+            "battery": "5000 mAh",
+            "os": "Realme UI based on Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/realme/realme-gt-6-pro-1.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Vivo X100 Pro",
+        "description": "Camera-focused phone with periscope zoom and Zeiss optics",
+        "price": 799,
+        "specifications": {
+            "display": "6.56-inch AMOLED 120Hz (2376x1080)",
+            "chip": "MediaTek Dimensity 9200+",
+            "storage": "256GB",
+            "camera": "50MP Main + 12MP Periscope Telephoto + 50MP Ultra Wide",
+            "battery": "4500 mAh",
+            "os": "OriginOS based on Android 13"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x100-pro-1.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Google Pixel Fold",
+        "description": "Google's first foldable with Tensor G2 chip and large foldable OLED",
+        "price": 1799,
+        "specifications": {
+            "display": "7.6-inch foldable OLED (2208x1840)",
+            "chip": "Google Tensor G2",
+            "storage": "256GB, 512GB",
+            "camera": "48MP Wide + 10.8MP Ultra Wide",
+            "battery": "4821 mAh",
+            "os": "Android 13"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/google/google-pixel-fold-1.jpg"
+    },
+    {
+        "id": 20,
+        "name": "Sony Xperia 5 V",
+        "description": "Compact flagship with 120Hz OLED and advanced ZEISS-tuned cameras",
+        "price": 949,
+        "specifications": {
+            "display": "6.1-inch OLED 120Hz (2520x1080)",
+            "chip": "Snapdragon 8 Gen 2",
+            "storage": "128GB, 256GB",
+            "camera": "12MP Triple Lens with ZEISS optics",
+            "battery": "5000 mAh",
+            "os": "Android 14"
+        },
+        "image": "https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-5-v-1.jpg"
+    }
+]
