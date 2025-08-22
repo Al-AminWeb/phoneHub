@@ -1,15 +1,16 @@
-'use client';
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import products from "../../../../data/products.json";
 
-export default function AddProductPage() {
+export default function AddProduct() {
     const router = useRouter();
     const [form, setForm] = useState({
         name: "",
         description: "",
         price: "",
         image: "",
+        brand: "",
         specifications: {
             display: "",
             chip: "",
@@ -19,29 +20,34 @@ export default function AddProductPage() {
             os: ""
         }
     });
+    const [activeSection, setActiveSection] = useState("basic");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
-    const [activeSection, setActiveSection] = useState("basic");
 
+    // handle input change
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if (name in form.specifications) {
-            setForm({
-                ...form,
-                specifications: {
-                    ...form.specifications,
-                    [name]: value
+
+        if (name.includes('.')) {
+            const [parent, child] = name.split('.');
+            setForm(prev => ({
+                ...prev,
+                [parent]: {
+                    ...prev[parent],
+                    [child]: value
                 }
-            });
+            }));
         } else {
             setForm({ ...form, [name]: value });
         }
     };
 
+    // handle form submit
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setMessage("");
+
         try {
             const res = await fetch("/api/add-product", {
                 method: "POST",
@@ -49,21 +55,23 @@ export default function AddProductPage() {
                 body: JSON.stringify({
                     ...form,
                     price: parseFloat(form.price),
-                    id: Math.max(...products.map(p => p.id)) + 1
-                })
+                }),
             });
+
             const result = await res.json();
+
             if (res.ok) {
-                setMessage("Product added successfully!");
+                setMessage("✅ Product added successfully!");
                 setTimeout(() => {
                     router.push("/products");
                 }, 1500);
             } else {
-                setMessage(result.error || "Failed to add product.");
+                setMessage(result.error || "❌ Failed to add product.");
             }
         } catch (err) {
-            setMessage("Server error. Please try again.");
+            setMessage("⚠️ Server error. Please try again.");
         }
+
         setLoading(false);
     };
 
@@ -127,6 +135,18 @@ export default function AddProductPage() {
                                     name="name"
                                     placeholder="e.g., iPhone 15 Pro Max"
                                     value={form.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Brand</label>
+                                <input
+                                    className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    name="brand"
+                                    placeholder="e.g., Apple"
+                                    value={form.brand}
                                     onChange={handleChange}
                                     required
                                 />
@@ -215,7 +235,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Display</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="display"
+                                        name="specifications.display"
                                         placeholder="e.g., 6.7-inch Super Retina XDR"
                                         value={form.specifications.display}
                                         onChange={handleChange}
@@ -227,7 +247,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Chip/Processor</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="chip"
+                                        name="specifications.chip"
                                         placeholder="e.g., A17 Pro Chip"
                                         value={form.specifications.chip}
                                         onChange={handleChange}
@@ -239,7 +259,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Storage Options</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="storage"
+                                        name="specifications.storage"
                                         placeholder="e.g., 128GB, 256GB, 512GB"
                                         value={form.specifications.storage}
                                         onChange={handleChange}
@@ -251,7 +271,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Camera System</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="camera"
+                                        name="specifications.camera"
                                         placeholder="e.g., 48MP Main, 12MP Ultra Wide"
                                         value={form.specifications.camera}
                                         onChange={handleChange}
@@ -263,7 +283,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Battery</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="battery"
+                                        name="specifications.battery"
                                         placeholder="e.g., 4323 mAh, up to 29 hours"
                                         value={form.specifications.battery}
                                         onChange={handleChange}
@@ -275,7 +295,7 @@ export default function AddProductPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Operating System</label>
                                     <input
                                         className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                        name="os"
+                                        name="specifications.os"
                                         placeholder="e.g., iOS 17"
                                         value={form.specifications.os}
                                         onChange={handleChange}

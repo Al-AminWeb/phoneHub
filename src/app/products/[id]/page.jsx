@@ -1,18 +1,29 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import clientPromise from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
 
-export default async function ProductDetails({ params }) {
-    const filePath = path.join(process.cwd(), 'data', 'products.json');
-    const file = await fs.readFile(filePath, 'utf-8');
-    const products = JSON.parse(file);
-    const product = products.find((p) => p.id === Number(params.id));
+async function fetchProduct(id) {
+    try {
+        const client = await clientPromise;
+        const db = client.db(process.env.MONGODB_DB || "test");
+
+        if (ObjectId.isValid(id)) {
+            const product = await db.collection("products").findOne({
+                _id: new ObjectId(id),
+            });
+            return product ? JSON.parse(JSON.stringify(product)) : null;
+        }
+    } catch (error) {
+        console.error("Error fetching product:", error.message);
+    }
+    return null;
+}
+
+export default async function ProductPage({ params }) {
+    const { id } = params;
+    const product = await fetchProduct(id);
 
     if (!product) {
-        return (
-            <div className="flex items-center justify-center h-[60vh]">
-                <h1 className="text-2xl font-bold text-red-500">Product Not Found</h1>
-            </div>
-        );
+        return <h1>Product not found</h1>;
     }
 
     return (
@@ -46,25 +57,27 @@ export default async function ProductDetails({ params }) {
                 </div>
 
                 {/* Specifications */}
-                <div className="border-t p-6 bg-gray-50">
-                    <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-                        Specifications
-                    </h2>
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full border border-gray-200 rounded-xl">
-                            <tbody className="divide-y divide-gray-200">
-                            {Object.entries(product.specifications).map(([key, value]) => (
-                                <tr key={key} className="hover:bg-gray-100">
-                                    <td className="px-4 py-3 font-medium capitalize text-gray-700 w-40">
-                                        {key}
-                                    </td>
-                                    <td className="px-4 py-3 text-gray-600">{value}</td>
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
+                {product.specifications && (
+                    <div className="border-t p-6 bg-gray-50">
+                        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+                            Specifications
+                        </h2>
+                        <div className="overflow-x-auto">
+                            <table className="min-w-full border border-gray-200 rounded-xl">
+                                <tbody className="divide-y divide-gray-200">
+                                {Object.entries(product.specifications).map(([key, value]) => (
+                                    <tr key={key} className="hover:bg-gray-100">
+                                        <td className="px-4 py-3 font-medium capitalize text-gray-700 w-40">
+                                            {key}
+                                        </td>
+                                        <td className="px-4 py-3 text-gray-600">{value}</td>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );

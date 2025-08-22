@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
+    const { data: session } = useSession();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,14 +31,12 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
                 {/* Logo */}
-                <Link
-                    href="/"
-                    className="flex items-center space-x-2 group"
-                >
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg transform group-hover:scale-105 transition-transform duration-300">
-                        <span className="text-white text-2xl">📱</span>
-                    </div>
-                    <span className={`font-bold text-xl ${isScrolled ? "text-gray-800" : "text-white"}`}>
+                <Link href="/" className="flex items-center space-x-2 group">
+                    <span
+                        className={`font-bold text-xl ${
+                            isScrolled ? "text-gray-800" : "text-white"
+                        }`}
+                    >
             PhoneHub
           </span>
                 </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                         Home
+                        Home
                     </Link>
                     <Link
                         href="/products"
@@ -77,48 +77,61 @@ export default function Navbar() {
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                         About
+                        About
                     </Link>
-                    <Link
-                        href="/dashboard/add-product"
-                        className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
-                            isActive("/dashboard/add-product")
-                                ? "bg-white/20 text-black font-medium"
-                                : isScrolled
-                                    ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                        }`}
-                    >
-                        Add Product
-                    </Link>
+                    {session && (
+                        <Link
+                            href="/dashboard/add-product"
+                            className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
+                                isActive("/dashboard/add-product")
+                                    ? "bg-white/20 text-black font-medium"
+                                    : isScrolled
+                                        ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
+                                        : "text-white/90 hover:bg-white/10 hover:text-white"
+                            }`}
+                        >
+                            Add Product
+                        </Link>
+                    )}
                 </div>
 
                 {/* Auth Buttons */}
                 <div className="hidden md:flex items-center space-x-2">
-                    <Link
-                        href="/login"
-                        className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
-                            isActive('/login')
-                                ? 'bg-blue-600 text-white'
-                                : isScrolled
-                                    ? 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
-                                    : 'text-white/90 hover:bg-white/10 hover:text-white'
-                        }`}
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        href="/signup"
-                        className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
-                            isActive('/signup')
-                                ? 'bg-purple-600 text-white'
-                                : isScrolled
-                                    ? 'text-gray-700 hover:bg-gray-100 hover:text-purple-600'
-                                    : 'text-white/90 hover:bg-white/10 hover:text-white'
-                        }`}
-                    >
-                        Signup
-                    </Link>
+                    {session ? (
+                        <button
+                            onClick={() => signOut()}
+                            className="px-4 py-2 rounded-lg transition-all duration-300 font-medium bg-red-600 text-white hover:bg-red-700"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <>
+                            <Link
+                                href="/login"
+                                className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
+                                    isActive("/login")
+                                        ? "bg-blue-600 text-white"
+                                        : isScrolled
+                                            ? "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+                                            : "text-white/90 hover:bg-white/10 hover:text-white"
+                                }`}
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                href="/signup"
+                                className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
+                                    isActive("/signup")
+                                        ? "bg-purple-600 text-white"
+                                        : isScrolled
+                                            ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
+                                            : "text-white/90 hover:bg-white/10 hover:text-white"
+                                }`}
+                            >
+                                Signup
+                            </Link>
+                        </>
+                    )}
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -152,6 +165,7 @@ export default function Navbar() {
                 } ${isScrolled ? "bg-white" : "bg-indigo-900"}`}
             >
                 <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
+                    {/* Links */}
                     <Link
                         href="/"
                         className={`py-3 px-4 rounded-lg transition-all duration-300 flex items-center ${
@@ -163,7 +177,7 @@ export default function Navbar() {
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <i className="mr-3">🏠</i> Home
+                         Home
                     </Link>
                     <Link
                         href="/products"
@@ -176,7 +190,7 @@ export default function Navbar() {
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <i className="mr-3">📦</i> Products
+                         Products
                     </Link>
                     <Link
                         href="/about"
@@ -189,20 +203,7 @@ export default function Navbar() {
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <i className="mr-3">ℹ️</i> About
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className={`py-3 px-4 rounded-lg transition-all duration-300 flex items-center ${
-                            isActive("/contact")
-                                ? "bg-indigo-700 text-white font-medium"
-                                : isScrolled
-                                    ? "text-gray-700 hover:bg-gray-100"
-                                    : "text-white/90 hover:bg-white/10"
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        <i className="mr-3">📞</i> Contact
+                         About
                     </Link>
                     <Link
                         href="/dashboard/add-product"
@@ -215,27 +216,43 @@ export default function Navbar() {
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        <i className="mr-3">➕</i> Add Product
+                         Add Product
                     </Link>
+
+                    {/* Auth Section Mobile */}
                     <div className="border-t pt-3 mt-3 border-gray-200/30">
-                        <Link
-                            href="/login"
-                            className={`block text-center py-3 px-4 rounded-lg transition-all duration-300 font-medium ${
-                                isScrolled
-                                    ? "text-purple-600 hover:bg-purple-50 border border-purple-600"
-                                    : "bg-white/20 text-white hover:bg-white/30"
-                            }`}
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <i className="mr-2">🔒</i> Login
-                        </Link>
-                        <Link
-                            href="/signup"
-                            className="block text-center py-3 px-4 mt-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <i className="mr-2">✨</i> Sign Up
-                        </Link>
+                        {!session ? (
+                            <>
+                                <Link
+                                    href="/login"
+                                    className={`block text-center py-3 px-4 rounded-lg transition-all duration-300 font-medium ${
+                                        isScrolled
+                                            ? "text-purple-600 hover:bg-purple-50 border border-purple-600"
+                                            : "bg-white/20 text-white hover:bg-white/30"
+                                    }`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    🔒 Login
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    className="block text-center py-3 px-4 mt-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    ✨ Sign Up
+                                </Link>
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => {
+                                    signOut();
+                                    setIsMenuOpen(false);
+                                }}
+                                className="block w-full text-center py-3 px-4 mt-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 font-medium"
+                            >
+                                🚪 Logout
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
