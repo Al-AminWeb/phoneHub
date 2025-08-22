@@ -68,7 +68,13 @@ export default function AddProductPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-8">
+        <div className="min-h-screen bg-gray-50 py-8 relative">
+            {/* Toast Notification */}
+            {message && (
+                <div className="fixed top-6 right-6 z-50">
+                    <div className={`px-6 py-3 rounded-lg shadow-lg text-white font-semibold transition-all duration-300 ${message.includes('success') ? 'bg-green-500' : 'bg-red-500'}`}>{message}</div>
+                </div>
+            )}
             <div className="container mx-auto px-4 max-w-4xl">
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -100,14 +106,24 @@ export default function AddProductPage() {
                     </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm p-6">
+                <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm p-6 relative">
+                    {/* Loading Spinner */}
+                    {loading && (
+                        <div className="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center z-10">
+                            <svg className="animate-spin h-10 w-10 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
+                        </div>
+                    )}
+
                     {/* Basic Information Section */}
                     {activeSection === "basic" && (
                         <div className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Product Name</label>
+                                <label className="block text-sm font-medium text-black mb-2">Product Name</label>
                                 <input
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                     name="name"
                                     placeholder="e.g., iPhone 15 Pro Max"
                                     value={form.name}
@@ -119,7 +135,7 @@ export default function AddProductPage() {
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
                                 <textarea
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                     name="description"
                                     placeholder="Describe the product features and benefits..."
                                     rows="4"
@@ -135,7 +151,7 @@ export default function AddProductPage() {
                                     <div className="relative">
                                         <span className="absolute left-3 top-3 text-gray-500">$</span>
                                         <input
-                                            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                            className=" text-black w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                             name="price"
                                             placeholder="0.00"
                                             type="number"
@@ -151,7 +167,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="image"
                                         placeholder="https://example.com/image.jpg"
                                         value={form.image}
@@ -198,7 +214,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Display</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="display"
                                         placeholder="e.g., 6.7-inch Super Retina XDR"
                                         value={form.specifications.display}
@@ -210,7 +226,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Chip/Processor</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="chip"
                                         placeholder="e.g., A17 Pro Chip"
                                         value={form.specifications.chip}
@@ -222,7 +238,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Storage Options</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="storage"
                                         placeholder="e.g., 128GB, 256GB, 512GB"
                                         value={form.specifications.storage}
@@ -234,7 +250,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Camera System</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="camera"
                                         placeholder="e.g., 48MP Main, 12MP Ultra Wide"
                                         value={form.specifications.camera}
@@ -246,7 +262,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Battery</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="battery"
                                         placeholder="e.g., 4323 mAh, up to 29 hours"
                                         value={form.specifications.battery}
@@ -258,7 +274,7 @@ export default function AddProductPage() {
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Operating System</label>
                                     <input
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        className=" text-black w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                                         name="os"
                                         placeholder="e.g., iOS 17"
                                         value={form.specifications.os}
@@ -292,16 +308,6 @@ export default function AddProductPage() {
                                     ) : "Add Product"}
                                 </button>
                             </div>
-                        </div>
-                    )}
-
-                    {message && (
-                        <div className={`mt-6 p-4 rounded-lg text-center font-medium ${
-                            message.includes("success")
-                                ? "bg-green-100 text-green-700 border border-green-200"
-                                : "bg-red-100 text-red-700 border border-red-200"
-                        }`}>
-                            {message}
                         </div>
                     )}
                 </form>

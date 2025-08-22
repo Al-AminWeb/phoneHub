@@ -1,6 +1,10 @@
-import products from "../../../../data/products.json";
+import { promises as fs } from 'fs';
+import path from 'path';
 
-export default function ProductDetails({ params }) {
+export default async function ProductDetails({ params }) {
+    const filePath = path.join(process.cwd(), 'data', 'products.json');
+    const file = await fs.readFile(filePath, 'utf-8');
+    const products = JSON.parse(file);
     const product = products.find((p) => p.id === Number(params.id));
 
     if (!product) {

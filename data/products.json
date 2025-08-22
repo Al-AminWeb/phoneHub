@@ -298,5 +298,20 @@
             "os": "Android 14"
         },
         "image": "https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-5-v-1.jpg"
+    },
+    {
+        "name": "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic6-pro-1.jpg",
+        "description": "This is a flagship phone.",
+        "price": 795,
+        "image": "https://fdn2.gsmarena.com/vv/pics/honor/honor-magic6-pro-1.jpg",
+        "specifications": {
+            "display": "6.8 inches LTPO OLED, 1B colors, 120Hz, Dolby Vision, HDR, 1600 nits (HBM), 5000 nits (peak)",
+            "chip": "Qualcomm SM8650-AB Snapdragon 8 Gen 3 (4 nm)",
+            "storage": "256GB 12GB RAM, 256GB 16GB RAM, 512GB 12GB RAM, 512GB 16GB RAM, 1TB 16GB RAM",
+            "camera": "50 MP, f/1.4-2.0, 23mm (wide), 1/1.3\", 1.2µm, PDAF, OIS 180 MP, f/2.6, (periscope telephoto), 1/1.49\", 0.56µm, PDAF, OIS, 2.5x optical zoom 50 MP, f/2.0, 13mm, 122˚ (ultrawide), 1/2.88\", 0.61µm, AF 50 MP, f/2.0, 22mm (wide), 1/2.93\", 0.6µm, AF TOF 3D, (depth/biometrics sensor)",
+            "battery": "Si/C Li-Ion 5600 mAh",
+            "os": "Android 14, up to 4 major Android upgrades, MagicOS 8"
+        },
+        "id": 21
     }
 ]

@@ -23,8 +23,8 @@ export default function Navbar() {
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                 isScrolled
-                    ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
-                    : "bg-gradient-to-r from-indigo-900 to-purple-800 py-4"
+                    ? "bg-white/95 backdrop-blur-md shadow-lg py-1"
+                    : "bg-gradient-to-r from-indigo-900 to-purple-800 py-2"
             }`}
         >
             <div className="container mx-auto px-4 flex justify-between items-center">
@@ -47,61 +47,49 @@ export default function Navbar() {
                         href="/"
                         className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
                             isActive("/")
-                                ? "bg-white/20 text-white font-medium"
+                                ? "bg-white/20 text-black font-medium"
                                 : isScrolled
                                     ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                        <i className="mr-2">🏠</i> Home
+                         Home
                     </Link>
                     <Link
                         href="/products"
                         className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
                             isActive("/products")
-                                ? "bg-white/20 text-white font-medium"
+                                ? "bg-white/20 text-black font-medium"
                                 : isScrolled
                                     ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                        <i className="mr-2">📦</i> Products
+                        Products
                     </Link>
                     <Link
                         href="/about"
                         className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
                             isActive("/about")
-                                ? "bg-white/20 text-white font-medium"
+                                ? "bg-white/20 text-black font-medium"
                                 : isScrolled
                                     ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                        <i className="mr-2">ℹ️</i> About
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
-                            isActive("/contact")
-                                ? "bg-white/20 text-white font-medium"
-                                : isScrolled
-                                    ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
-                                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                        }`}
-                    >
-                        <i className="mr-2">📞</i> Contact
+                         About
                     </Link>
                     <Link
                         href="/dashboard/add-product"
                         className={`px-4 py-2 rounded-lg transition-all duration-300 flex items-center ${
                             isActive("/dashboard/add-product")
-                                ? "bg-white/20 text-white font-medium"
+                                ? "bg-white/20 text-black font-medium"
                                 : isScrolled
                                     ? "text-gray-700 hover:bg-gray-100 hover:text-purple-600"
                                     : "text-white/90 hover:bg-white/10 hover:text-white"
                         }`}
                     >
-                        <i className="mr-2">➕</i> Add Product
+                        Add Product
                     </Link>
                 </div>
 
@@ -110,18 +98,26 @@ export default function Navbar() {
                     <Link
                         href="/login"
                         className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
-                            isScrolled
-                                ? "text-purple-600 hover:bg-purple-50 border border-purple-600"
-                                : "bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm"
+                            isActive('/login')
+                                ? 'bg-blue-600 text-white'
+                                : isScrolled
+                                    ? 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+                                    : 'text-white/90 hover:bg-white/10 hover:text-white'
                         }`}
                     >
-                        <i className="mr-2">🔒</i> Login
+                        Login
                     </Link>
                     <Link
                         href="/signup"
-                        className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+                        className={`px-4 py-2 rounded-lg transition-all duration-300 font-medium ${
+                            isActive('/signup')
+                                ? 'bg-purple-600 text-white'
+                                : isScrolled
+                                    ? 'text-gray-700 hover:bg-gray-100 hover:text-purple-600'
+                                    : 'text-white/90 hover:bg-white/10 hover:text-white'
+                        }`}
                     >
-                        <i className="mr-2">✨</i> Sign Up
+                        Signup
                     </Link>
                 </div>
 
