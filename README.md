@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+
+
+````markdown
+# 📱 Phone Hub  
+
+Phone Hub is a full-stack mobile phone marketplace web application built with **Next.js, MongoDB, and NextAuth.js**.  
+It allows users to browse phones, authenticate (login/signup), and manage their accounts securely.  
+
+---
+
+## 🚀 Features  
+- 🔐 **Authentication** with NextAuth.js (Email/Password, Google, etc.)  
+- 🛡️ Protected routes (e.g., Profile page)  
+- 📱 Mobile-friendly responsive design  
+- ☁️ Cloud database with MongoDB Atlas  
+- ⚡ Deployed on Vercel for fast performance  
+
+---
+
+## ⚙️ Setup & Installation  
+
+Follow these steps to run the project locally:  
+
+### 1️⃣ Clone the repository  
+```bash
+git clone https://github.com/your-username/phone-hub.git
+cd phone-hub
+````
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Configure environment variables
+
+Create a `.env.local` file in the root directory and add:
+
+```env
+# Authentication
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+
+# MongoDB
+MONGODB_URI=your-mongodb-connection-string
+MONGODB_DB=phonehub
+```
+
+⚠️ When deploying to **Vercel**, update `NEXTAUTH_URL`:
+
+```env
+NEXTAUTH_URL=https://phone-hub-nu.vercel.app
+```
+
+👉 To generate a secret, run:
+
+```bash
+openssl rand -base64 32
+```
+
+### 4️⃣ Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Your app will be available at:
+👉 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 5️⃣ Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛣️ Route Summary
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Route                     | Method | Description                 |
+| ------------------------- | ------ | --------------------------- |
+| `/`                       | GET    | Home page                   |
+| `/login`                  | GET    | Login page                  |
+| `/signup`                 | GET    | Signup page                 |
+| `/profile` (protected)    | GET    | User profile dashboard      |
+| `/api/auth/[...nextauth]` | POST   | NextAuth authentication API |
+| `/api/phones` (if added)  | GET    | Fetch all phones            |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🌍 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Hosted on **Vercel**: [https://phone-hub-nu.vercel.app](https://phone-hub-nu.vercel.app)
+* Backend handled by **Next.js API routes**
+* Database: **MongoDB Atlas**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧪 Demo Login Credentials (Optional)
+
+For testing without signup, you can use:
+
+```
+Email: demo@phonehub.com
+Password: 123456
+```
+
+
+
+## 👨‍💻 Author
+
+**Md. Alamin**
+
+* 📧 Email: [mdalaminweb.1@gmail.com](mailto:mdalaminweb.1@gmail.com)
+
+
+---
+
+
+
+
+
